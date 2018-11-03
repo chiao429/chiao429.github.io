@@ -86,7 +86,7 @@
 
                     <!--<div id="app">
         <p style="color:white;">{{ message }}</p>
-        <input v-model="password" type="password" placeholder="請輸入通關密碼">
+        <input v-model="password" type="password" placeholder="請輸入4位數字通關密碼">
         <input type="submit" value="立即送出" v-on:click="clickme">
         <br />
         <button v-on:click="unlock" class="button stroke smoothscroll">解密</button>
@@ -94,7 +94,7 @@
                     <div id="app">
 
                         <div align="center">
-                            <input v-model="password" style="text-align: center" type="password" placeholder="請輸入通關密碼">
+                            <input v-model="password" onKeyUp="if(this.value.length>4){this.value=this.value.substr(0,4)};this.value=this.value.replace(/[^\d]/g,'') "style="text-align: center" type="password" placeholder="請輸入4位數字通關密碼">
                         </div>
                         <input type="submit" value="立即解密" v-on:click="clickme" class="button stroke smoothscroll">
                     </div>
@@ -128,9 +128,12 @@
             methods: {
                 clickme: function () {
                     if (this.password == "0429") {
-                        alert("恭喜你答對囉！"+"密碼是:"+this.password);
+                        alert("恭喜你答對囉！" + "密碼是:" + this.password);
+                        this.password = "";
+                    } else {
+                        alert("答錯了！" + "密碼不是:" + this.password);
+                        this.password = "";
                     }
-                    alert("答錯了！"+ "密碼不是:"+this.password);
                 }
             }
         });
