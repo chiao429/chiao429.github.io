@@ -2,10 +2,7 @@
 <!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
-<style type="text/css">
-    .input {
-        align ="center"
-    }
+<style type="text/css">  
 </style>
 <html class="no-js" lang="en">
 <!--<![endif]-->
@@ -98,20 +95,17 @@
                         <button v-on:click="unlock" class="button stroke smoothscroll">解密</button>
                     </div>-->
                     <div id="app">
-                        <div align="center">
+                        <label style="color:wheat;margin-bottom:100px">{{message}}</label>
+                        <!--<div align="center">
                             <input v-model="password" onKeyUp="if(this.value.length>4){this.value=this.value.substr(0,4)};this.value=this.value.replace(/[^\d]/g,'') " style="text-align: center" type="password" placeholder="請輸入4位數字通關密碼">
                         </div>
-                        <input type="submit" value="立即解密" v-on:click="clickme" class="button stroke smoothscroll">
+                        <input type="submit" value="立即解密" v-on:click="clickme" class="button stroke smoothscroll">-->
                     </div>
-
-
-
                 </div>
-
             </div>
         </div> <!-- /intro-content -->
 
-        <ul class="intro-social">
+        <ul class="intro-social" style="margin-top:38px">
             <li><a href="https://goo.gl/chFZwJ"><i class="fa fa-facebook"></i></a></li>
             <!--<li><a href="#"><i class="fa fa-behance"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -129,65 +123,30 @@
     <script>
         new Vue({
             el: '#app',
-            data: { password: "" },
-            methods: {
-                clickme: function () {
-
-                    if (this.password.length == 0) {
-              
-                        swal({
-                            title: '密碼不可空白<br>請再重新輸入！',
-                            text: '2秒後自動關閉視窗。',
-                            timer: 2000,
-                            type:"warning",
-                            confirmButtonColor: '#cc005f',
-                            confirmButtonText: '關閉',
-                        }).then(
-
-                            function (dismiss) {
-                                if (dismiss === 'timer') {
-                                    console.log('I was closed by the timer')
-                                }
-                            }
-                        )
-                    } else {
-
-                        if (this.password == "1234") {
-                            
-                            swal({
-                                title: "密碼正確!",
-                                html: "",
-                                type: "success",
-                                showCancelButton: false,
-                                confirmButtonColor: "#3085d6",
-                                confirmButtonText: "跳转至下载页面"
-                            }).then(function () {
-                                window.location.assign('https://s3-ap-northeast-1.amazonaws.com/islotgames/Unity/App/DownloadPage/download.html');
-                            });   
-
-                        } else {
-                            swal({
-                                title: '密碼錯誤<br>請再重新輸入！',
-                                text: '2秒後自動關閉視窗。',
-                                timer: 2000,
-                                type: "error",
-                                confirmButtonColor: '#cc005f',
-                                confirmButtonText: '關閉',
-                            }).then(
-
-                                function (dismiss) {
-                                    if (dismiss === 'timer') {
-                                        console.log('I was closed by the timer')
-                                    }
-                                }
-                            )                           
-                            this.password = "";
-                        }
-                    }
-
-                }
+            data: { message: getRandom() },
+            mounted: function () {
+             
+                
+            },
+            methods: {        
             }
         });
+       
+        function getRandom() {
+            var num = Math.floor(Math.random() * 5) + 1;
+
+            var cContentArr = {
+                1: "祝福你們時時都歡喜快樂。保羅說：「願弟兄們都喜樂。」跟好朋友在一起不管做任何事，都令人高興不已！保羅不時交代信徒要「常常喜樂」，但當你要跟累積多年好感情的同學離別、獨自邁向不可知的未來時，心中難免不捨、難過、煩惱、生氣、鬱悶……。這時候，要怎麼做才能繼續保持喜樂的心呢？保羅在腓立比書4章4～7節指出永保喜樂的祕訣：「你們要靠主常常喜樂。我再說，你們要喜樂。當叫眾人知道你們謙讓的心。主已經近了。應當一無掛慮，只要凡事藉著禱告、祈求，和感謝，將你們所要的告訴神。神所賜、出人意外的平安必在基督耶穌裡保守你們的心懷意念。」（和合本）因此請記得，當你心裡感到不快樂時，務必親近上帝、禱告上帝，將心裡種種不愉快感受都告訴祂，藉此經歷上帝所賜出乎人意外的平安及喜樂。",
+                2: "祝福你們要作完全的人。作完全的人，不是要你們作一個完美無缺、100分的人，因為這世界上找不到百分之百的完人！保羅祝福信徒作完全的人，主要是強調信徒在屬靈生命要追求成為長大、成熟的人。要怎樣做，屬靈生命才能漸漸成長呢？主要方法就是「讀聖經」。屬靈的根基只有在讀聖經、明白上帝的真理上扎根，屬靈生命才有辦法繼續向上成長！若是只靠聽牧師講道、只求經驗奇妙神蹟、或只聽信某位牧師的預言，當大難臨頭時，信仰的根基有可能會一夕間就分崩離析，你也可能會就此轉去拜別的神明。所以，請從現在起，當你準備要外出、工作或讀書之前，先讀一段上帝的話，讓它成為你屬靈生命的養分，天天滋潤你的心靈。",
+                3: "祝福你們能樂意接受勸告。當你們的年紀越來越大後，會漸漸發現身邊少有人會跟你說真心話，許多人都只會跟你說好聽的話。為什麼說真心話的人會逐漸變少？因為忠言逆耳！一方面，說真話可能會破壞雙方的關係；另一方面，也可能自己心硬、聽不進去對方所給予的建言。不過，若有一天你遇到一個人願意誠心地向你勸告，即便這些話會扎你的心、使你難過好幾天，你也要好好感謝這個人，因為他是真正愛你。你若願意真心接受勸告、順服勸勉，漸漸地你將發現，你會更認識你自己、也更愛你自己、更愛上帝",
+                4: "祝福你們要同心（合一）。就像一首歌，當樂器跟歌聲和諧地結合一起，會讓人聽得悅耳舒服。你們在團體中，也要學習跟團體的人同心合一、有團隊的精神。當自己有機會出頭時，也不要忘記幫助其他人一起出頭；當別人在為團體而忙時，要記得你也是團體的一分子，願意一起同甘共苦。特別是當你們交男女朋友後，往往很快地就會跟對方進入倆人世界，而離開大團體，你的世界可能只剩下你跟對方，不再有其他人。盼望聖靈在那時候能提醒你，讓你跟你的「阿那達」回到大團體，免得你們兩人獨處太多，陷入情慾的試探。",
+                5:"祝福你們要彼此和睦相處。特別是跟你們不喜歡的人、討厭的人、看不順眼的人、長相不夠美麗或帥氣的人、身體有異味的人、生病的人、殘障的人……，盼望你們更能與這些人和睦相處。在團體中，這些人特別容易讓人排斥在外，一個人顯得孤單。當你們身邊有這些朋友時，請你們做他們的朋友，使他們有機會透過你認識耶穌，進而讓耶穌來改變他們的生命。"
+            };
+         
+            var cContent = cContentArr[num];
+            return cContent;
+
+        }
     </script>
 </body>
 
