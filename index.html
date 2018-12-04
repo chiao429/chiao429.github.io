@@ -97,7 +97,7 @@
                     </div>-->
                     <div id="app">
                         <div align="center">
-                            <input v-model="password" onKeyUp="if(this.value.length>4){this.value=this.value.substr(0,4)};this.value=this.value.replace(/[^\d]/g,'') " style="text-align: center" type="password" placeholder="請輸入4位數字通關密碼">
+                            <input v-model="password" onKeyUp="if(this.value.length>5){this.value=this.value.substr(0,5)};this.value=this.value.replace(/[^\d]/g,'') " style="text-align: center" type="password" placeholder="請輸入4位數字通關密碼">
                         </div>
                         <input type="submit" value="立即解密" v-on:click="clickme" class="button stroke smoothscroll">
                     </div>
@@ -150,7 +150,7 @@
                         )
                     } else {
 
-                        if (this.password == "1234") {
+                        if (this.password == "23231") {
                             
                             swal({
                                 title: "密碼正確!",
