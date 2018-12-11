@@ -2,9 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\css",
-    "\\css\\micons",
-    "\\js"
+    "\\css\\micons\\fonts",
+    "\\images"
   ],
-  "SelectedNode": "\\js\\main.js",
+  "SelectedNode": "\\page1.html",
   "PreviewInSolutionExplorer": false
 }
