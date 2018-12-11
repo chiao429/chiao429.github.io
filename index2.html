@@ -130,7 +130,7 @@
             data: { password: "" },
             methods: {
                 clickme: function () {
-
+                    this.password = this.password.toUpperCase()
                     if (this.password.length == 0) {
               
                         swal({
@@ -150,7 +150,7 @@
                         )
                     } else {
 
-                        if (this.password == "BAC") {
+                        if (this.password == "BAC" ) {
                             
                             swal({
                                 title: "密碼正確!",
