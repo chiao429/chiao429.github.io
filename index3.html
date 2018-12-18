@@ -78,25 +78,42 @@
             <div class="row">
 
                 <div class="col-twelve">
-                    <img src="images/logo.png" width="100%" style="max-width: 634px;margin-top:32px"><br>
 
+                    <!--<h5>Christmas</h5>
+                    <h1>解密：</h1>
+                    <h1>克里斯‧馬斯</h1>
+                    <p class="intro-position">
+                        <span>Hello World</span>
+                        <span>Have a nice day</span>
+                    </p>-->
+                    <img src="images/logo.png" width="100%" style="max-width: 634px"><br>
+                    <!--<div id="app">
+                        <p style="color:white;">{{ message }}</p>
+                        <input v-model="password" type="password" placeholder="請輸入5位數字通關密碼">
+                        <input type="submit" value="立即送出" v-on:click="clickme">
+                        <br />
+                        <button v-on:click="unlock" class="button stroke smoothscroll">解密</button>
+                    </div>-->
                     <div id="app">
-                        <label style="font-family: Comic Sans MS,arial,helvetica,sans-serif;color:wheat;margin-bottom:30px;font-size:18px">上帝差派祂的獨生子到世上來，叫我們靠著祂得到生命，可見祂是多麼地愛我們！愛是怎樣的呢？就是我們並沒有先愛上帝，上帝卻先愛我們，並且差遣祂的兒子為我們犧牲，抵償罪債！<br /><br />－約翰一書4:9-10(當代聖經譯本)</label>
-                        <input type="submit" value="下一頁" v-on:click="clickme" class="button stroke" style="margin-bottom:130px;">
+                        <div align="center">
+                            <label style="color:white;font-family: Comic Sans MS,arial,helvetica,sans-serif;">提示：密碼為一段經文</label>
+                            <input v-model="password" onKeyUp="if (this.value.length > 9) {this.value = this.value.substr(0, 9)}};" style="text-align: center;text-transform:uppercase" type="text" placeholder="輸入密碼開啟密室之門">
+                        </div>
+                        <input type="submit" value="立即解密" v-on:click="clickme" class="button stroke smoothscroll">
+                        <label style="color:papayawhip;font-family: Comic Sans MS,arial,helvetica,sans-serif;">※小提醒：請依據News上解出的文字<br />進行輸入，密碼沒有標點符號。</label><br />
                     </div>
                 </div>
+
             </div>
         </div> <!-- /intro-content -->
 
-        <ul class="intro-social" style="margin-top:585px">
+        <ul class="intro-social">
             <li><a href="https://goo.gl/chFZwJ"><i class="fa fa-facebook"></i></a></li>
             <!--<li><a href="#"><i class="fa fa-behance"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
             <li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
             <li><a href="https://goo.gl/2MJKdR"><i class="fa fa-instagram"></i></a></li>
         </ul> <!-- /intro-social -->
-
-
 
     </section> <!-- /intro -->
     <!-- Java Script
@@ -108,27 +125,64 @@
     <script>
         new Vue({
             el: '#app',
-            data: { message: getRandom() },
-            mounted: function () {
-            },
+            data: { password: "" },
             methods: {
                 clickme: function () {
-                    window.location.assign("https://chiao429.github.io/page4.html");
+                    this.password = this.password.toUpperCase()
+                    if (this.password.length == 0) {
+
+                        swal({
+                            title: '密碼不可空白<br>請再重新輸入！',
+                            text: '2秒後自動關閉視窗。',
+                            timer: 2000,
+                            type: "warning",
+                            confirmButtonColor: '#cc005f',
+                            confirmButtonText: '關閉',
+                        }).then(
+
+                            function (dismiss) {
+                                if (dismiss === 'timer') {
+                                    console.log('I was closed by the timer')
+                                }
+                            }
+                        )
+                    } else {
+
+                        if (this.password == "約翰一書4章910") {
+
+                            swal({
+                                title: "密碼正確!",
+                                html: "",
+                                type: "success",
+                                showCancelButton: false,
+                                confirmButtonColor: "#cc005f",
+                                confirmButtonText: "關閉"
+                            }).then(function () {
+                                window.location.assign("https://chiao429.github.io/page3.html");
+                            });
+
+                        } else {
+                            swal({
+                                title: '密碼錯誤<br>請再重新輸入！',
+                                html: "※小提醒：<br>請依據News上解出的9個文字進行輸入!<br><font color = 'red'><br>例如:馬太福音5章813</font><br><br>",
+                                type: "error",
+                                confirmButtonColor: '#cc005f',
+                                confirmButtonText: '關閉',
+                            }).then(
+
+                                function (dismiss) {
+                                    if (dismiss === 'timer') {
+                                        console.log('I was closed by the timer')
+                                    }
+                                }
+                            )
+                            this.password = "";
+                        }
+                    }
+
                 }
             }
         });
-
-        function getRandom() {
-            var num = 1;
-
-            var cContentArr = {
-                1: "上帝差派祂的獨生子到世上來，叫我們靠著祂得到生命，可見祂是多麼地愛我們！愛是怎樣的呢？就是我們並沒有先愛上帝，上帝卻先愛我們，並且差遣祂的兒子為我們犧牲，抵償罪債！",
-            };
-
-            var cContent = cContentArr[num];
-            return cContent;
-
-        }
     </script>
 </body>
 
