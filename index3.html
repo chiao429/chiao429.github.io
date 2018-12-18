@@ -96,7 +96,7 @@
                     </div>-->
                     <div id="app">
                         <div align="center">
-                            <label style="color:white;font-family: Comic Sans MS,arial,helvetica,sans-serif;">提示：密碼為一段經文</label>
+                            <!--<label style="color:white;font-family: Comic Sans MS,arial,helvetica,sans-serif;">提示：密碼為一段經文</label>-->
                             <input v-model="password" onKeyUp="if (this.value.length > 9) {this.value = this.value.substr(0, 9)}};" style="text-align: center;text-transform:uppercase" type="text" placeholder="輸入密碼開啟密室之門">
                         </div>
                         <input type="submit" value="立即解密" v-on:click="clickme" class="button stroke smoothscroll">
