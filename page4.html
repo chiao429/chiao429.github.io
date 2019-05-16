@@ -1,87 +1,8 @@
 ﻿<!DOCTYPE html>
+<!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+<!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
 <style type="text/css">
-    h1, h2, h3, h4 {
-        color: tan;
-    }
-
-    h4 {
-        text-align: center
-    }
-
-    .item {
-        height: 350px;
-        width: 100%;
-    }
-
-    #layer {
-        position: fixed;
-        top: 0px;
-        background-color: rgba(0,0,0,0);
-        width: 100%;
-        z-index: 5;
-    }
-
-
-    .fixed-text {
-        color: #000;
-    }
-
-    .carousel-control.left {
-        z-index: 7
-    }
-
-    .carousel-control.right {
-        z-index: 7
-    }
-
-    ol.carousel-indicators {
-        position: absolute;
-        bottom: 5px;
-        margin: 0;
-        left: 0;
-        right: 0;
-        width: auto;
-    }
-
-        ol.carousel-indicators li,
-        ol.carousel-indicators li.active {
-            width: 1rem;
-            height: 1rem;
-            margin: 0;
-            border-radius: 50%;
-            border: 0;
-            background: transparent;
-        }
-
-        ol.carousel-indicators li {
-            background: rgba(255,255,255,0.39);
-            margin-left: .5rem;
-            margin-right: .5rem;
-        }
-
-            ol.carousel-indicators li.active {
-                background: yellow;
-            }
-
-    @media (max-width:767px) {
-        #layer {
-            display: none;
-        }
-
-        .layer {
-            display: block;
-        }
-    }
-
-    @media (min-width:768px) {
-        #layer {
-            display: block;
-        }
-
-        .layer {
-            display: none;
-        }
-    }
 </style>
 <html class="no-js" lang="en">
 <!--<![endif]-->
@@ -106,8 +27,6 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/sweetalert2.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
     <!-- script
     ================================================== -->
     <script src="js/modernizr.js"></script>
@@ -117,9 +36,6 @@
     <!--引用SweetAlert2.js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.10.3/sweetalert2.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
     <!-- favicons
      ================================================== -->
     <!--<link rel="icon" type="image/png" href="favicon.png">-->
@@ -132,8 +48,26 @@
     ================================================== -->
     <header>
         <div class="row">
-        </div>
-    </header>
+
+            <!--<div class="top-bar">
+             <a class="menu-toggle" href="#"><span>Menu</span></a>-->
+            <!--<div class="logo">
+                <a href="index.html">解密：克里斯‧馬斯</a>
+            </div>-->
+            <!--<nav id="main-nav-wrap">
+                 <ul class="main-navigation">
+                     <li class="current"><a class="smoothscroll"  href="#intro" title="">Home</a></li>
+                     <li><a class="smoothscroll"  href="#about" title="">About</a></li>
+                     <li><a class="smoothscroll"  href="#resume" title="">Resume</a></li>
+                     <li><a class="smoothscroll"  href="#portfolio" title="">Portfolio</a></li>
+                     <li><a class="smoothscroll"  href="#services" title="">Services</a></li>
+                     <li><a class="smoothscroll"  href="#contact" title="">Contact</a></li>
+                     <li><a href="styles.html" title="">Style Demo</a></li>
+                 </ul>
+             </nav>-->
+            <!--</div>--> <!-- /top-bar -->
+        </div> <!-- /row -->
+    </header> <!-- /header -->
     <!-- intro section
     ================================================== -->
     <section id="intro">
@@ -141,92 +75,30 @@
         <div class="intro-overlay"></div>
 
         <div class="intro-content">
+            <div class="row">
 
-            <div class="col-twelve" style="text-align:center">
+                <div class="col-twelve">
+                    <img src="images/logo.png" width="100%" style="max-width: 634px;margin-top:32px"><br>
 
-                <div id="app" style="text-align:center;margin-bottom:100px;">
-                    <div id="myCarousel" class="carousel slide" style="text-align:center;margin-top:50px">
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators">
-                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                            <li data-target="#myCarousel" data-slide-to="1"></li>
-                            <li data-target="#myCarousel" data-slide-to="2"></li>
-                            <li data-target="#myCarousel" data-slide-to="3"></li>
-                        </ol>
-                        <div class="carousel-inner" style="text-align:center">
-                            <div class="item active" style="text-align:center">
-                               
-                                <div class="container">
-                                    <img  src="images/pageSilder_1.png" alt="First Slide" /><br />
-                                    <div class="carousel-caption">
-                                        <h3 style="color:moccasin;font-family: Comic Sans MS,arial,helvetica,sans-serif;">路加福音22:14-20記載</h3>
-                                        <h4 style="color:wheat;font-family: Comic Sans MS,arial,helvetica,sans-serif;">耶穌在被抓之前，和祂的門徒一起吃逾越節的晚餐，耶穌透過這個晚餐，再一次預告祂將要被殺害而死。<br /><br />這個晚餐，被稱作<span style="color:khaki;font-weight:bold;">主的晚餐</span>，後來教會也按照耶穌在這晚餐所做的，舉行<span style="color:khaki;font-weight:bold;">聖餐</span>。</h4>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item" style="text-align:center">                               
-                                <div class="container">
-                                    <img src="images/pageSilder_2.png" alt="Second Slide" />
-                                    <div class="carousel-caption">
-                                        <h3 style="color:moccasin;font-family: Comic Sans MS,arial,helvetica,sans-serif">在主的晚餐中</h3>
-                                        <h4 style="color:wheat;font-family: Comic Sans MS,arial,helvetica,sans-serif;">耶穌將餅擘開，餅象徵著耶穌的身體，擘開餅象徵耶穌的身體為我們受苦；<br /><br />在主的晚餐中，耶穌拿起葡萄汁，宣告這是祂的血，意思是這紅色的葡萄汁，象徵耶穌為我們流血、犧牲生命。</h4>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                              
-                                <div class="container">
-                                    <img src="images/pageSilder_3.png" alt="Three Slide" />
-                                    <div class="carousel-caption">
-                                        <h3 style="color:moccasin;font-family: Comic Sans MS,arial,helvetica,sans-serif">在聖餐中</h3>
-                                        <h4 style="color:wheat;font-family: Comic Sans MS,arial,helvetica,sans-serif;">我們要想起、紀念耶穌為我們受苦、受鞭打、被釘十字架，流血為我們犧牲自己。在這樣的紀念中，我們向耶穌獻上感恩。<br /><br /><br /></h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                
-                                <div class="container">
-                                    <img src="images/pageSilder_4.png" alt="Four Slide" />
-                                    <div class="carousel-caption">
-                                        <h3 style="color:moccasin;font-family: Comic Sans MS,arial,helvetica,sans-serif">然而</h3>
-                                        <h4 style="color:wheat;font-family: Comic Sans MS,arial,helvetica,sans-serif;">我們不只要自己接受耶穌的恩典、領受耶穌的祝福， 也要效法耶穌的榜樣，願意給予別人、祝福別人。<br /><br />當我們這麼做，我們就讓別人從我們的身上經歷耶穌的愛和祝福，讓其他人透過我們來認識耶穌。</h4>
-
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <!-- Controls -->
-                        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-                            <span class="icon-prev"></span>
-                        </a>
-                        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-                            <span class="icon-next"></span>
-                        </a>
+                    <div id="app">
+                        <label style="font-family: Comic Sans MS,arial,helvetica,sans-serif;color:wheat;margin-bottom:100px;font-size:18px">
+                            Christmas－克里斯馬斯，不是一個節日，而是之於每一個人，有著關乎生命、極其重要的意義！<br /><br />
+                            耶穌基督深愛著我們，祂為我們降卑而生，更為我們犧牲而死，祂為我們承擔罪的刑罰，挪去我們背上的重擔，使我們成為自由人，擁有全新的生命，又把真實的盼望、喜樂、平安賜給我們！
+                            <br /><br />未來的道路，祂還要繼續的帶領我們前行，永遠與我們同在，無論發生任何事，都要記得，耶穌愛你，深深的愛著你！
+                        </label>
+                        <div style="margin-bottom:130px;"></div>
                     </div>
-                    <div id="layer">
-                        <div class="top-div">
-                            <div class="fixed-text">Fixed Text</div>
-                        </div>
-                    </div>
-                    <hr>
-                    <img src="images/logo.png" width="100%" style="max-width: 400px"><br>
                 </div>
             </div>
-
         </div> <!-- /intro-content -->
-        <div>
-            <ul class="intro-social">
-                <li><a href="https://goo.gl/chFZwJ"><i class="fa fa-facebook"></i></a></li>
-                <!--<li><a href="#"><i class="fa fa-behance"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
-                <li><a href="https://goo.gl/2MJKdR"><i class="fa fa-instagram"></i></a></li>
-            </ul> <!-- /intro-social -->
-        </div>
 
+        <ul class="intro-social" style="margin-top:585px">
+            <li><a href="https://goo.gl/chFZwJ"><i class="fa fa-facebook"></i></a></li>
+            <!--<li><a href="#"><i class="fa fa-behance"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-dribbble"></i></a></li>-->
+            <li><a href="https://goo.gl/2MJKdR"><i class="fa fa-instagram"></i></a></li>
+        </ul> <!-- /intro-social -->
 
     </section> <!-- /intro -->
     <!-- Java Script
@@ -236,11 +108,19 @@
     <script src="js/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.1/vue.min.js"></script>
     <script>
-
-
-        $(".single-item").slick({
-            dots: true
+        new Vue({
+            el: '#app',
+            data: { message: getRandom() },
+            mounted: function () {
+            },
+            methods: {
+                clickme: function () {
+                    window.location.assign("https://chiao429.github.io/page2.html");
+                }
+            }
         });
+
+
     </script>
 </body>
 

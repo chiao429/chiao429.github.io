@@ -3,7 +3,10 @@
 <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!-->
 <style type="text/css">
+<<<<<<< HEAD
  
+=======
+>>>>>>> 1de0bf87a2e1297a0438bcd05012d60cbdd233b0
 </style>
 <html class="no-js" lang="en">
 <!--<![endif]-->
@@ -97,6 +100,7 @@
                     </div>-->
                     <div id="app">
                         <div align="center">
+<<<<<<< HEAD
                             <input v-model="password" onKeyUp="if(this.value.length>3){this.value=this.value.substr(0,3)};this.value=this.value.replace(/[^a-zA-Z]/g,'') " style="text-align: center;text-transform:uppercase" type="text" placeholder="請輸入3位英文通關密碼">
                         </div>
                         <input type="submit" value="立即解密" v-on:click="clickme" class="button stroke smoothscroll">
@@ -104,6 +108,14 @@
 
 
 
+=======
+                            <!--<label style="color:white;font-family: Comic Sans MS,arial,helvetica,sans-serif;">提示：密碼為一段經文</label>-->
+                            <input v-model="password" onKeyUp="if (this.value.length > 9) {this.value = this.value.substr(0, 9)}};" style="text-align: center;text-transform:uppercase" type="text" placeholder="輸入密碼開啟密室之門">
+                        </div>
+                        <input type="submit" value="立即解密" v-on:click="clickme" class="button stroke smoothscroll">
+                        <label style="color:papayawhip;font-family: Comic Sans MS,arial,helvetica,sans-serif;">※小提醒：請依據News上解出的文字<br />進行輸入，密碼沒有標點符號。</label><br />
+                    </div>
+>>>>>>> 1de0bf87a2e1297a0438bcd05012d60cbdd233b0
                 </div>
 
             </div>
@@ -132,12 +144,11 @@
                 clickme: function () {
                     this.password = this.password.toUpperCase()
                     if (this.password.length == 0) {
-              
                         swal({
                             title: '密碼不可空白<br>請再重新輸入！',
                             text: '2秒後自動關閉視窗。',
                             timer: 2000,
-                            type:"warning",
+                            type: "warning",
                             confirmButtonColor: '#cc005f',
                             confirmButtonText: '關閉',
                         }).then(
@@ -150,8 +161,8 @@
                         )
                     } else {
 
-                        if (this.password == "BAC" ) {
-                            
+                        if (this.password == "約翰一書4章910") {
+
                             swal({
                                 title: "密碼正確!",
                                 html: "",
@@ -160,14 +171,13 @@
                                 confirmButtonColor: "#cc005f",
                                 confirmButtonText: "關閉"
                             }).then(function () {
-                                window.location.assign("https://chiao429.github.io/page2.html");
-                            });   
+                                window.location.assign("https://chiao429.github.io/page3.html");
+                            });
 
                         } else {
                             swal({
                                 title: '密碼錯誤<br>請再重新輸入！',
-                                text: '2秒後自動關閉視窗。',
-                                timer: 2000,
+                                html: "※小提醒：<br>請依據News上解出的9個文字進行輸入!<br><font color = 'red'><br>例如:馬太福音5章813</font><br><br>",
                                 type: "error",
                                 confirmButtonColor: '#cc005f',
                                 confirmButtonText: '關閉',
@@ -178,7 +188,7 @@
                                         console.log('I was closed by the timer')
                                     }
                                 }
-                            )                           
+                            )
                             this.password = "";
                         }
                     }
