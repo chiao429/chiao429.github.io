@@ -1,0 +1,78 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>1A2B Game</h2>
+        <input v-model="number">
+        <button v-on:click="query">
+        send
+        </button>
+        
+        <br>
+        
+      </div>
+</body>
+</html>
+<script>
+ var Question =new Vue({
+  el: "#app",
+  data: {
+   number:"",result:"",answer:[]
+  },
+  methods: {
+  	query: function(){
+    let num =this.number;
+    let answer='0429';
+    let ansArr =answer.split("");
+    let numArr =num.split("");
+
+    if(numArr.length!==4){ //防呆
+    alert("請輸入四位數字");
+    return;
+    }
+  
+    let countA=0;
+    let countB=0;
+    let A=0;
+    let B=0;
+    for(var i=0;i<4;i++){
+      let numIndex=ansArr.indexOf(numArr[i]);
+      if(numIndex!==-1){ //位置對數字對
+      if(numArr[i]==ansArr[i]){
+      countA =A+=1;
+      }else{
+      countB =B+=1;
+      }
+      
+     
+      }else  {
+       
+      }
+			console.log(numIndex,i);
+      } 
+     
+    if(countA==4){
+    alert('答案就是'+num+"!!");
+   console.log(countA,"A",countB,"B");
+     Question.number="";
+    return;
+    }else{
+    console.log(countA,"A",countB,"B");
+     alert(countA+"A"+countB+"B");
+     Question.number="";
+     
+    }
+     
+    }
+  }
+});
+</script>
